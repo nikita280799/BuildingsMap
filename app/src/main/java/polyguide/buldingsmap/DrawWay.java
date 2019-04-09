@@ -14,10 +14,13 @@ import android.widget.ScrollView;
 
 import java.util.Stack;
 
+
+/**
+    Кастомный View для отрисовки графа на картинке корпуса
+ */
 public class DrawWay extends View {
 
     private Paint mPaint = new Paint();
-    private Rect mRect = new Rect();
     private Bitmap mBitmap;
     private Stack<Point> stack;
 
@@ -31,8 +34,6 @@ public class DrawWay extends View {
     public void setWayForDrawing(Stack<Point> stack) {
         this.stack = stack;
     }
-
-
 
     @Override
     protected void onDraw(Canvas canvas){
@@ -51,5 +52,4 @@ public class DrawWay extends View {
             from = to;
         }
     }
-
 }

@@ -2,12 +2,11 @@ package polyguide.buldingsmap;
 
 import android.graphics.Point;
 
-import java.util.Objects;
-
 public class Vertex {
 
     private String label;
     private Point coordinate;
+    private int floor;
 
     @Override
     public boolean equals(Object o) {
@@ -15,7 +14,8 @@ public class Vertex {
         if (o == null || getClass() != o.getClass()) return false;
         Vertex vertex = (Vertex) o;
         return label.equals(vertex.label) &&
-                coordinate.equals(vertex.coordinate);
+                coordinate.equals(vertex.coordinate) &&
+               floor == vertex.floor;
     }
 
     @Override
@@ -23,10 +23,11 @@ public class Vertex {
         return label.hashCode();
     }
 
-    public Vertex(String label, Point coordinate)
+    public Vertex(String label, Point coordinate, int floor)
     {
         this.label = label;
         this.coordinate = coordinate;
+        this.floor = floor;
     }
 
     public String getLabel() {

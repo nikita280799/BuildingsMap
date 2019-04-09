@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -46,6 +45,8 @@ public class Graph {
         return connections.get(vertex);
     }
 
+
+    // поиск пути между двумя вершинами графа
     public Stack<Vertex> bdf(Vertex from, Vertex to) {
         Set<Vertex> visitedVertex = new HashSet<>();
         Stack<Vertex> stack = new Stack();
@@ -79,6 +80,4 @@ public class Graph {
         }
         return stack;
     }
-
-
 }
