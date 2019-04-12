@@ -34,6 +34,8 @@ public class Vertex {
         return label;
     }
 
+    public int getFloor() { return floor;}
+
     public Point getCoordinate() {
         return coordinate;
     }
