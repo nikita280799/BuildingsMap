@@ -979,5 +979,15 @@ public class Graph {
         NINEGRAPH.addConnectionsInTwoSides(fourthFLeftStairs, thirdFLeftStairs);
         NINEGRAPH.addConnectionsInTwoSides(thirdFLeftStairs, secondFLeftStairs);
         NINEGRAPH.addConnectionsInTwoSides(secondFLeftStairs, firstFLeftStairs);
+
+        NINEGRAPH.addConnectionsInTwoSides(fifthFRightStairs, fourthFRightStairs);
+        NINEGRAPH.addConnectionsInTwoSides(fourthFRightStairs, thirdFRightStairs);
+        NINEGRAPH.addConnectionsInTwoSides(thirdFRightStairs, secondFRightStairs);
+        NINEGRAPH.addConnectionsInTwoSides(secondFRightStairs, firstFRightStairs);
+
+        NINEGRAPH.addConnectionsInTwoSides(fifthFLeftStairs, fourthFLeftStairs);
+        NINEGRAPH.addConnectionsInTwoSides(fourthFLeftStairs, thirdFLeftStairs);
+        NINEGRAPH.addConnectionsInTwoSides(thirdFLeftStairs, secondFLeftStairs);
+        NINEGRAPH.addConnectionsInTwoSides(secondFLeftStairs, firstFLeftStairs);
     }
 }
