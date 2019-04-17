@@ -49,7 +49,7 @@ public class Graph {
     public List<Vertex> getVertexList() { return vertexList;}
 
     // поиск пути между двумя вершинами графа
-    public List<Vertex> bdf(Vertex from, Vertex to) {
+    public List<Vertex> searchWay(Vertex from, Vertex to) {
         Set<Vertex> visitedVertex = new HashSet<>();
         Stack<Vertex> stack = new Stack();
         Vertex curVertex = from;

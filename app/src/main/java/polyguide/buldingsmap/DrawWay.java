@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.view.View;
 
 import java.util.List;
+import java.util.Map;
 
 /**
     Кастомный View для отрисовки графа на картинке корпуса
@@ -19,6 +20,7 @@ public class DrawWay extends View {
     private Bitmap mBitmap;
     private List<Vertex> wayForDrawing;
     private List<Vertex> testPoints;
+    private Graph graph; // только для проверки соединений
 
     private int activeFloor = 1;
     private boolean isNineBuildingPaint = true;
@@ -84,6 +86,10 @@ public class DrawWay extends View {
         this.testPoints = testPoints;
     }
 
+    public void setGraphForDrawing(Graph graphForDrawing) {
+        this.graph = graphForDrawing;
+    }
+
     @Override
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
@@ -97,6 +103,7 @@ public class DrawWay extends View {
         canvas.drawText( Integer.toString(mBitmap.getHeight()), 1400, 500, mPaint);
         if (wayForDrawing != null && !wayForDrawing.isEmpty()) drawWay(canvas);
         if (testPoints != null && !testPoints.isEmpty()) drawTestPoints(canvas);
+        if (graph != null) drawGraph(canvas);
     }
 
     private void drawTestPoints(Canvas canvas) {
@@ -111,6 +118,17 @@ public class DrawWay extends View {
             if (from.getFloor() == activeFloor && to.getFloor() == activeFloor) {
                 canvas.drawLine(from.getCoordinate().x* 3.5f, from.getCoordinate().y* 3.5f, to.getCoordinate().x* 3.5f, to.getCoordinate().y* 3.5f, mPaint);
                 from = to;
+            }
+        }
+    }
+
+    private void drawGraph(Canvas canvas) {
+        for (Vertex from: graph.getVertexList()) {
+            if (graph.getConnections(from) != null && !graph.getConnections(from).isEmpty()) {
+
+                for (Vertex to : graph.getConnections(from)) {
+                    canvas.drawLine(from.getCoordinate().x * 3.5f, from.getCoordinate().y* 3.5f, to.getCoordinate().x* 3.5f, to.getCoordinate().y* 3.5f, mPaint);
+                }
             }
         }
     }
