@@ -9,7 +9,6 @@ import android.graphics.Paint;
 import android.view.View;
 
 import java.util.List;
-import java.util.Map;
 
 /**
     Кастомный View для отрисовки графа на картинке корпуса
@@ -24,12 +23,15 @@ public class DrawWay extends View {
 
     private int activeFloor = 1;
     private boolean isNineBuildingPaint = true;
-    private double[][] drawingCoef = {{3.39, 3.45}};
 
 
     public DrawWay(Context context) {
         super(context);
         drawFloor();
+        upFloor();
+        upFloor();
+        upFloor();
+        upFloor();
     }
 
     public void switchOnMainBuiding() {
@@ -117,15 +119,14 @@ public class DrawWay extends View {
         for (Vertex to: wayForDrawing) {
             if (from.getFloor() == activeFloor && to.getFloor() == activeFloor) {
                 canvas.drawLine(from.getCoordinate().x* 3.5f, from.getCoordinate().y* 3.5f, to.getCoordinate().x* 3.5f, to.getCoordinate().y* 3.5f, mPaint);
-                from = to;
             }
+            from = to;
         }
     }
 
     private void drawGraph(Canvas canvas) {
         for (Vertex from: graph.getVertexList()) {
-            if (graph.getConnections(from) != null && !graph.getConnections(from).isEmpty()) {
-
+            if (graph.getConnections(from) != null && !graph.getConnections(from).isEmpty() && from.getFloor() == activeFloor) {
                 for (Vertex to : graph.getConnections(from)) {
                     canvas.drawLine(from.getCoordinate().x * 3.5f, from.getCoordinate().y* 3.5f, to.getCoordinate().x* 3.5f, to.getCoordinate().y* 3.5f, mPaint);
                 }

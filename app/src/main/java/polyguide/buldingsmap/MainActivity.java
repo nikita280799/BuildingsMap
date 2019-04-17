@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         DrawWay drawWay = new DrawWay(this);
         //drawWay.setTestPoints(graph.getVertexList());
-        //drawWay.setWayForDrawing(graph.searchWay(new Vertex("117", new Point(295, 324), 1), new Vertex("107", new Point(64, 273), 1)));
-        drawWay.setGraphForDrawing(graph);
+        drawWay.setWayForDrawing(graph.searchWay(new Vertex("117", new Point(295, 324), 1), new Vertex("между 511,506 и 508", new Point(255, 383), 5)));
+        //drawWay.setGraphForDrawing(graph);
         HorizontalScrollView scroll = new HorizontalScrollView(this);
         scroll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
         drawWay.setMinimumWidth(5000);
